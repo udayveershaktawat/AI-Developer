@@ -5,6 +5,8 @@ import dbconnect from "./db/db.js";
 
 const app = express();
 
+app.use(cookieParser())
+
 app.use(morgan("dev"));
 app.use(express());
 app.use(express.urlencoded({extended:true}));
