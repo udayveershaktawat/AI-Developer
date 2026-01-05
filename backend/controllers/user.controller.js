@@ -18,7 +18,7 @@ export const createUserController = async(req,res)=>{
 
 
     try{
-        const user = await userService.createUser(req.body)
+        const user = await userService.createUser(req.body);
 
     }
     catch(error){
