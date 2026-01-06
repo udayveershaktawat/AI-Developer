@@ -2,6 +2,8 @@ import userModel from "../models/user.model.js";
 import * as userService from "../services/user.service.js";
 import { validationResult } from "express-validator";
 
+
+// resgister
 export const createUserController = async (req, res) => {
   const errors = validationResult(req);
 
@@ -20,6 +22,8 @@ export const createUserController = async (req, res) => {
   }
 };
 
+
+// login
 export const loginController = async(req,res)=>{
   const errors = validationResult(req);
 
@@ -59,5 +63,11 @@ export const loginController = async(req,res)=>{
 
      res.status(400).send(error.message);
   }
+
+}
+
+
+// profile
+export const profileController = async(req,res,next)=>{
 
 }

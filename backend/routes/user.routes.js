@@ -20,5 +20,6 @@ router.post(
     .withMessage("password must be at least 3"),
   UserController.loginController
 );
+router.get("/profile",UserController.profileController);
 
 export default router;
