@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as UserController from "../controllers/user.controller.js";
 import { body } from "express-validator";
+import * as authMiddleware from "../middleware/auth.middleware.js"
 
 const router = Router();
 
@@ -20,6 +21,6 @@ router.post(
     .withMessage("password must be at least 3"),
   UserController.loginController
 );
-router.get("/profile",UserController.profileController);
+router.get("/profile",authMiddleware.authUser,UserController.profileController);
 
 export default router;

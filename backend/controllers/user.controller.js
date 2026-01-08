@@ -1,6 +1,7 @@
 import userModel from "../models/user.model.js";
 import * as userService from "../services/user.service.js";
 import { validationResult } from "express-validator";
+// import * as authMiddleware from "../middleware/auth.middleware.js"
 
 
 // resgister
@@ -68,6 +69,10 @@ export const loginController = async(req,res)=>{
 
 
 // profile
-export const profileController = async(req,res,next)=>{
+export const profileController = async(req,res)=>{
+  console.log(req.user)
+  res.status(200).json({
+    user:req.user
+  })
 
 }
