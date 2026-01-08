@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import dbconnect from "./db/db.js";
 import userRoutes from "./routes/user.routes.js";
+import cookieParser from "cookie-parser";
 
 
 const app = express();
