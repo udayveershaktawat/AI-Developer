@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const register = () => {
   return (
@@ -36,7 +37,7 @@ const register = () => {
 
 
         </form>
-        <p className='text-gray-400 mt-4'>Don't have an account</p>
+        <p className='text-gray-400 mt-4'>Don't have an account? <Link to=""></Link></p>
 
       </div>
       
