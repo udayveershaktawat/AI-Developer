@@ -36,7 +36,7 @@ const register = () => {
 
 
         </form>
-        <p>Don't have an account</p>
+        <p className='text-gray-400 mt-4'>Don't have an account</p>
 
       </div>
       
