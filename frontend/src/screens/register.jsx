@@ -37,7 +37,7 @@ const register = () => {
 
 
         </form>
-        <p className='text-gray-400 mt-4'>Don't have an account? <Link to=""></Link></p>
+        <p className='text-gray-400 mt-4'>Don't have an account? <Link to="/signup" className='text-blue-500 hover:underline'></Link></p>
 
       </div>
       
