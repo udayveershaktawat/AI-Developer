@@ -5,7 +5,7 @@ const register = () => {
   return (
      <div className='min-h-screen flex items-center justify-center bg-gray-900'>
       <div className='bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md'>
-        <h2 className='text-2xl font-bold text-white mb-6'>Login</h2>
+        <h2 className='text-2xl font-bold text-white mb-6'>Register</h2>
         <form action="">
 
           <div className='mb-4'>
@@ -30,14 +30,14 @@ const register = () => {
           <button
           type='submit'
           className='w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200'
-          >Login</button>
+          >Register</button>
 
 
 
 
 
         </form>
-        <p className='text-gray-400 mt-4'>Don't have an account? <Link to="/signup" className='text-blue-500 hover:underline'></Link></p>
+        <p className='text-gray-400 mt-4'>Already have an account? <Link to="/login" className='text-blue-500 hover:underline'>login</Link></p>
 
       </div>
       
