@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState, useState}  from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-
+import axios from "../config/axios"
 const register = () => {
+  
+  const [email,setEmail]= useState("")
+  const [password,useState]= useState("")
 
   const navigate = useNavigate();
   return (
@@ -13,6 +16,7 @@ const register = () => {
           <div className='mb-4'>
             <label className='block text-gray-400 mb-2' htmlFor='email'>Email</label>
             <input
+            onChange={(e)=>setEmail(e.target.value)}
             type='email'
             id='email'
             className='w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
