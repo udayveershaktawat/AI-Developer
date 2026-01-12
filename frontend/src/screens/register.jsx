@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 const register = () => {
+
+  const navigate = useNavigate();
   return (
      <div className='min-h-screen flex items-center justify-center bg-gray-900'>
       <div className='bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md'>
