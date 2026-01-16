@@ -12,7 +12,7 @@ app.use(cookieParser())
 app.use(cors())
 
 app.use(morgan("dev"));
-app.use(express());
+app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 dbconnect();

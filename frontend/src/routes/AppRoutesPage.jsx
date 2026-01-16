@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import Login from '../screens/Login'
-import Register from '../screens/Register'
-import Home from '../screens/Home'
+import LoginPage from '../screens/LoginPage'
+import RegisterPage from '../screens/RegisterPage'
+import HomePage from '../screens/HomePage'
 
 
 const AppRoutesPage = () => {
@@ -10,9 +10,9 @@ const AppRoutesPage = () => {
         <BrowserRouter>
 
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
                 
             </Routes>
 
