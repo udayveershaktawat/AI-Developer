@@ -1,18 +1,15 @@
-import React from 'react'
-import AppRoutesPage from "./routes/AppRoutesPage"
-
-
+import React from "react";
+import AppRoutesPage from "./routes/AppRoutesPage";
+import { UserProvider } from "./context/user.context";
 
 const App = () => {
   return (
     <div>
-      <AppRoutesPage/>
-      
-
+      <UserProvider>
+        <AppRoutesPage />
+      </UserProvider>
     </div>
-    
-    
-  )
-}
+  );
+};
 
-export default App
+export default App;
