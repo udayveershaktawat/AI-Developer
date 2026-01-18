@@ -3,7 +3,8 @@ import morgan from "morgan";
 import dbconnect from "./db/db.js";
 import userRoutes from "./routes/user.routes.js";
 import cookieParser from "cookie-parser";
-import cors from "cors"
+import cors from "cors";
+import projectRoute from "./routes/project.routes.js"
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.urlencoded({extended:true}));
 dbconnect();
 
 app.use("/users",userRoutes);
+app.use("/projects",projectRoute)
 
 
 app.get("/",(req,res)=>{
