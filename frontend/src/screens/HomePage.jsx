@@ -12,7 +12,8 @@ const HomePage = () => {
   return (
    <main className='p-4'>
     <div className='projects'>
-      <button className="project p-8 border border-slate-300 rounded-md m-8 ">
+      <button className="project p-8 border border-slate-300 rounded-md m-8 "> 
+        
         <i className="ri-team-fill"></i>
       </button>
     </div>
