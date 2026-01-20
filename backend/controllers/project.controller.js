@@ -1,36 +1,36 @@
 import porjectModel from "../models/project.model.js";
-import * as projectService from "../services/project.service.js"
-import {validationResult} from "express-validator";
-import userModel from "../models/user.model.js"
+import * as projectService from "../services/project.service.js";
+import { validationResult } from "express-validator";
+import userModel from "../models/user.model.js";
 
-export const createProjectController = async(req,res)=>{
+export const createProjectController = async (req, res) => {
+  const errors = validationResult(req);
 
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
-    const errors = validationResult(req)
-
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors:errors.array()})
-    }
-
-    try{
-          const {name}= req.body;
-    const loggedInUser = await userModel.findOne({email});
+  try {
+    const { name } = req.body;
+    const loggedInUser = await userModel.findOne({ email });
 
     const userId = loggedInUser._id;
 
-    const newProject = await projectService.createProject({name,userId});
+    const newProject = await projectService.createProject({ name, userId });
 
-    res.status(201).json(newProject)
+    res.status(201).json(newProject);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error.message);
+  }
+};
 
-    } 
-    catch(error){
-        console.log(error)
-        res.status(400).send(error.message)
+// get project
+export const getAllProject = async(req,res)=>{
+    try{
+
     }
-
-  
-
-
-
-
+    catch(error){
+        
+    }
 }
