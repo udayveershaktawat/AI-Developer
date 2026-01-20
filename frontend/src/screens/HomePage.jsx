@@ -1,24 +1,40 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/user.context";
+import axios from "../config/axios";
 
 const HomePage = () => {
   const { user } = useContext(UserContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projectName, setProjectName] = useState(null);
 
-  function createProect() {}
+  function createProject(e) {
+    e.preventDefault()
+    console.log({ projectName })
+
+
+    axios
+      .post("/projects/create", {
+        name: projectName,
+      })
+      .then((res) => {
+        console.log(res);
+        setIsModalOpen(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <main className="p-4">
       <div className="projects">
         <button
-          onClick={() => {
-            setIsModalOpen(true);
-          }}
-          className="project p-8 border border-slate-300 rounded-md m-8 "
+          onClick={() => setIsModalOpen(true)}
+          className="project p-4 border border-slate-300 rounded-md "
         >
           New Project
-          <i className="ri-team-fill"></i>
+          <i className="ri-team-fill ml-2"></i>
         </button>
       </div>
 
@@ -26,13 +42,7 @@ const HomePage = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-md shadow-md w-1/3">
             <h2 className="text-xl mb-4">Create New Project</h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                createProject();
-                setIsModalOpen(false);
-              }}
-            >
+            <form onSubmit={createProject}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
                   Project Name
