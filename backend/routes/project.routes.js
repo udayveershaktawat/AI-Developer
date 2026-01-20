@@ -14,6 +14,11 @@ router.post("/create",
 
 )
 
+router.get("/all",
+    authMiddleWare.authUser,
+    projectController.getAllProject
+)
+
 
 
 
