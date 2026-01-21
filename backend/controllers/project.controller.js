@@ -41,3 +41,23 @@ export const getAllProject = async(req,res)=>{
         req.status(400).json({error:error.message})
     }
 }
+
+export const addUserToProject = async(req,res)=>{
+  const errors = validationResult(req);
+
+  if(!errors.isEmpty()){
+    return res.status(400).json({errors:errors.array()})
+  }
+
+  try{
+
+  }catch(error){
+    console.log(error)
+    res.status(400).json({error:error.message})
+  }
+
+
+
+
+
+}
