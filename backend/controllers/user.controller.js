@@ -60,6 +60,7 @@ export const loginController = async(req,res)=>{
      delete user._doc.password
 
     res.status(200).json({
+      success:true,
       user,token
     })
 
