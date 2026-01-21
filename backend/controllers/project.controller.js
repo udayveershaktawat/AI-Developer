@@ -51,6 +51,8 @@ export const addUserToProject = async(req,res)=>{
 
   try{
 
+    const {projectId,users}=req.body
+
   }catch(error){
     console.log(error)
     res.status(400).json({error:error.message})
