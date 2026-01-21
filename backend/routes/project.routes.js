@@ -20,6 +20,7 @@ router.get("/all",
 )
 router.put("/add-user",
     authMiddleWare.authUser,
+    body("projectId").isString().withMessage("project Id is required"),
     body("user").isArray({min:1}).isMessage("user must be an array of string").bail()
     .custom((user)=>user.every(user=>typeof user === 'string')).withMessage("each user must be a string"),
     projectController.addUserToProject
