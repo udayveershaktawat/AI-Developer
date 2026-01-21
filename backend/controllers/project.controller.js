@@ -12,7 +12,7 @@ export const createProjectController = async (req, res) => {
 
   try {
     const { name } = req.body;
-    const loggedInUser = await userModel.findOne({ email });
+    const loggedInUser = await userModel.findOne({ email:req.user.email });
 
     const userId = loggedInUser._id;
 
@@ -28,9 +28,16 @@ export const createProjectController = async (req, res) => {
 // get project
 export const getAllProject = async(req,res)=>{
     try{
+      const loggedInUser = await userModel.findOne({email:req.user.email});
+      const allUserProjects = await projectService.getAllProjectByUserId({
+        userId:loggedInUser._id
+      })
+
+      return res.status(200).json({projects:allUserProjects})
 
     }
     catch(error){
-        
+        console.log(error);
+        req.status(400).json({error:error.message})
     }
 }
