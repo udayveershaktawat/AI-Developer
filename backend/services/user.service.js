@@ -15,4 +15,7 @@ export const createUser = async ({ email, password }) => {
   return user;
 };
 
-export const getUserByEmail = async()
+export const getAllUsers = async({email})=>{
+  const users = await userModel.find({})
+  return users
+}
