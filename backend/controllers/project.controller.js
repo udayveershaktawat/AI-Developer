@@ -71,9 +71,10 @@ export const addUserToProject = async (req, res) => {
 
 export const getProjectById = async(req,res)=>{
   try{
+    const {projectId} = req.params
 
   }
   catch(error){
-    
+
   }
 }

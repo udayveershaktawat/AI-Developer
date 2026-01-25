@@ -82,3 +82,6 @@ export const addUsersToProject = async ({ projectId, users, userId }) => {
 
   return updatedProject;
 };
+
+
+export const getProjectById =async({projectId})
