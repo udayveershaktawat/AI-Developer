@@ -98,7 +98,7 @@ export const getAllUsersController = async(req,res)=>{
     })
 
 
-    const allUsers = await userService.getAllUsers({userId})
+    const allUsers = await userService.getAllUsers({userId:loggedInUser._id})
 
 
     return res.status(200).json({
