@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { UserContext } from "../context/user.context";
 import axios from "../config/axios";
 
@@ -25,6 +25,12 @@ const HomePage = () => {
         console.log(err);
       });
   }
+
+  useEffect(()=>{
+    axios.get("/projects/all").then((res)=>{
+      console.log(res.data)
+    }).catch((error)=>{console.log(error)})
+  },[])
 
   return (
     <main className="p-4">
