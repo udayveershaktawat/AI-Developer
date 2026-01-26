@@ -1,4 +1,4 @@
-import porjectModel from "../models/project.model.js";
+import projectModel from "../models/project.model.js";
 import * as projectService from "../services/project.service.js";
 import { validationResult } from "express-validator";
 import userModel from "../models/user.model.js";
@@ -12,6 +12,7 @@ export const createProjectController = async (req, res) => {
 
   try {
     const { name } = req.body;
+  
     const loggedInUser = await userModel.findOne({ email: req.user.email });
 
     const userId = loggedInUser._id;
@@ -21,6 +22,7 @@ export const createProjectController = async (req, res) => {
     res.status(201).json(newProject);
   } catch (error) {
     console.log(error);
+    console.log("galti yaha pr se aa rehi hai")
     res.status(400).send(error.message);
   }
 };
@@ -28,9 +30,9 @@ export const createProjectController = async (req, res) => {
 // get project
 export const getAllProject = async (req, res) => {
   try {
-    const loggedInUser = await userModel.findOne({ email: req.user.email });
+    const loggedInUser = await userModel.findOne({ email:req.user.email });
     const allUserProjects = await projectService.getAllProjectByUserId({
-      userId: loggedInUser._id,
+      userId:loggedInUser._id,
     });
 
     return res.status(200).json({ projects: allUserProjects });
