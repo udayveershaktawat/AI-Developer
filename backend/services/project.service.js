@@ -23,7 +23,7 @@ export const getAllProjectByUserId = async ({ userId }) => {
   }
 
   const allUserProjects = await projectModel.find({
-    user: userId,
+    users: userId,
   });
 
   return allUserProjects;

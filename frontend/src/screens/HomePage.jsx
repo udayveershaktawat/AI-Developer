@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user.context";
 import axios from "../config/axios";
+import {useNavigate} from "react-router-dom"
 
 const HomePage = () => {
   const { user } = useContext(UserContext);
@@ -8,6 +9,8 @@ const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [project, setProject] = useState([]);
+
+  const navigate =useNavigate()
 
   function createProject(e) {
     e.preventDefault();
@@ -50,6 +53,11 @@ const HomePage = () => {
         </button>
         {project.map((project) => (
           <div
+          onClick={()=>{
+            navigate("/project",{
+              state:{project}
+            })
+          }}
             key={project._id}
             className="project flex flex-col gap-2 cursor-pointer p-4 border border-slate-300 rounded-md min-w-52 hover:bg-slate-200"
           >

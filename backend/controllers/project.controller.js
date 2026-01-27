@@ -22,7 +22,7 @@ export const createProjectController = async (req, res) => {
     res.status(201).json(newProject);
   } catch (error) {
     console.log(error);
-    console.log("galti yaha pr se aa rehi hai")
+   
     res.status(400).send(error.message);
   }
 };
