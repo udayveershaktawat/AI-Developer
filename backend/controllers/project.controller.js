@@ -34,8 +34,12 @@ export const getAllProject = async (req, res) => {
     const allUserProjects = await projectService.getAllProjectByUserId({
       userId:loggedInUser._id,
     });
+    // console.log(allUserProjects)
 
-    return res.status(200).json({ projects: allUserProjects });
+    return res.status(200).json({
+       projects: allUserProjects,
+    
+      });
   } catch (error) {
     console.log(error);
     req.status(400).json({ error: error.message });

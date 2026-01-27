@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/user.context";
 import axios from "../config/axios";
 
@@ -6,12 +6,12 @@ const HomePage = () => {
   const { user } = useContext(UserContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [projectName, setProjectName] = useState(null);
+  const [projectName, setProjectName] = useState("");
+  const [project, setProject] = useState([]);
 
   function createProject(e) {
-    e.preventDefault()
-    console.log({ projectName })
-
+    e.preventDefault();
+    console.log({ projectName });
 
     axios
       .post("/projects/create", {
@@ -21,20 +21,26 @@ const HomePage = () => {
         console.log(res);
         setIsModalOpen(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   }
 
-  useEffect(()=>{
-    axios.get("/projects/all").then((res)=>{
-      console.log(res.data)
-    }).catch((error)=>{console.log(error)})
-  },[])
+  useEffect(() => {
+    axios
+      .get("/projects/all")
+      .then((res) => {
+        console.log(res.data);
+        setProject(res.data.projects);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <main className="p-4">
-      <div className="projects">
+      <div className="projects flex flex-wrap gap-3 ">
         <button
           onClick={() => setIsModalOpen(true)}
           className="project p-4 border border-slate-300 rounded-md "
@@ -42,6 +48,25 @@ const HomePage = () => {
           New Project
           <i className="ri-team-fill ml-2"></i>
         </button>
+        {project.map((project) => (
+          <div
+            key={project._id}
+            className="project flex flex-col gap-2 cursor-pointer p-4 border border-slate-300 rounded-md min-w-52 hover:bg-slate-200"
+          >
+            <h2 className="font-semibold">{project.name}</h2>
+            <div className="flex gap-2">
+              <p>
+                {" "}
+                <small>
+                  {" "}
+                  <i className="ri-user-line"></i> Collaborators
+                </small>{" "}
+                :
+              </p>
+              {project.users.length}
+            </div>
+          </div>
+        ))}
       </div>
 
       {isModalOpen && (
