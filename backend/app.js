@@ -5,6 +5,7 @@ import userRoutes from "./routes/user.routes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import projectRoute from "./routes/project.routes.js"
+import aiRoutes from "./routes/ai.routes.js"
 
 
 const app = express();
@@ -20,6 +21,7 @@ dbconnect();
 
 app.use("/users",userRoutes);
 app.use("/projects",projectRoute)
+app.use("/ai",aiRoutes)
 
 
 app.get("/",(req,res)=>{
