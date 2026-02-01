@@ -4,6 +4,7 @@ import LoginPage from '../screens/LoginPage'
 import RegisterPage from '../screens/RegisterPage'
 import HomePage from '../screens/HomePage'
 import Project from "../screens/Project"
+import UserAuth from '../auth/UserAuth'
 
 
 const AppRoutesPage = () => {
