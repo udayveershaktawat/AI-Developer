@@ -71,6 +71,7 @@ io.on("connection", socket=>{
 
         const message = data.message;
         const aiIsPresentInMessage = message.includes("@ai");
+        socket.broadcast.to(socket.roomId).emit("project-message",data)
         if(aiIsPresentInMessage){
 
 
@@ -101,7 +102,7 @@ io.on("connection", socket=>{
         }
 
         
-        socket.broadcast.to(socket.roomId).emit("project-message",data)
+        
     })
     // socket.on('event',data=>{/*..*/})
     socket.on('disconnect',()=>{
