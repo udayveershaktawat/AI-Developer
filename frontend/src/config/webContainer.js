@@ -5,7 +5,7 @@ let webContainerInstance = null;
 
 export const getWebContainer = ()=>{
     if(webContainerInstance === null){
-        webContainerInstance = new WebContainer()
+        webContainerInstance = new WebContainer.boot()
     }
     return webContainerInstance
 
